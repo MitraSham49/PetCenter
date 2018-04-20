@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.validation.Valid;
+
 @Controller
 public class MainController {
     @Autowired
@@ -26,13 +28,15 @@ public class MainController {
      }
 
      @RequestMapping("/savepet")
-    public  String savePet(@ModelAttribute ("aPet") Pet toSave, BindingResult result){
+    public  String savePet( @Valid @ModelAttribute ("aPet") Pet toSave, BindingResult result){
     if (result.hasErrors()){
         return"addpet";
     }
      petRepo.save (toSave);
     return "redirect:/";
      }
+
+
     @RequestMapping("/changestatus/{id}")
 
     public String borrowReturn(@PathVariable("id") long id) {
@@ -41,6 +45,8 @@ public class MainController {
          petRepo.save(thisPet);
          return "redirect:/";
     }
+
+
     @RequestMapping("/update/{id}")
     public String updatePet(@PathVariable ("id") long id, Model model) {
         model.addAttribute("aPet", petRepo.findById(id).get());

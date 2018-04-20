@@ -4,26 +4,28 @@
 <head>
     <meta charset="UTF-8"/>
     <title>Title</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
 
 </head>
 <body style="background-color:powderblue;">
 
 
+    <
     <form action="/savepet" th:object="${aPet}" method="post">
-    <input type="hidden" th:field="*{id}">
-    <label for="type">Enter Pet Type</label>
-    <input type="text" th:field="*{type}">
-       <!-- <span th:if="#field.hasErrors('type')}" th:errors="*{type}"></span> <br/>-->
-    <label for="name">Enter Pet Name</label>
-    <input type="text" th:field="*{name}">
+        <input type="hidden" th:field="*{id}">
+        <label for="type">Enter Pet Type</label>
+        <input type="text" th:field="*{type}">
+        <!-- <span th:if="#field.hasErrors('type')}" th:errors="*{type}"></span> <br/> -->
+        <label for="name">Enter Pet Name</label>
+        <input type="text" th:field="*{name}">
         <label for="description">Enter Pet information</label>
         <input type="text" th:field="*{description}">
-    <label for="image">Enter Pet Image</label>
-    <input type="text" th:field="*{image}" placeholder="/img/apple.jpg">
-    <input type="checkbox" th:field="*{lost}" th:check="*{lost}">
-    <button type="submit">Save a Pet</button>
+        <label for="image">Enter Pet Image</label>
+
+        <input type="text" th:field="*{image}" placeholder="/img/apple.jpg">
+        <input type="checkbox" th:field="*{lost}" th:check="*{lost}">
+        <button type="submit">Save a Pet</button>
     </form>
 
 
