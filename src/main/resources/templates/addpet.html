@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8"/>
     <title>Title</title>
-    <link rel="stylesheet" href="/css/style.css">
+
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/style.css">
 </head>
@@ -23,8 +23,7 @@
         <label for="description">Enter Pet information</label>
         <input type="text" th:field="*{description}">
         <label for="image">Enter Pet Image</label>
-
-        <input type="text" th:field="*{image}" placeholder="/img/apple.jpg"  >  <!--  th:value="*{/img/tedy.jpg}" placeholder="/img/apple.jpg">-->
+        <input type="text" th:field="*{image}"   placeholder="/img/apple.jpg"  >  <!--  th:value="*{/img/tedy.jpg}" placeholder="/img/apple.jpg">-->
         <input type="checkbox" th:field="*{lost}" th:check="*{lost}">
         <button type="submit">Save a Pet</button>
     </form>
