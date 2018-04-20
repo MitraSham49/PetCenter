@@ -4,13 +4,13 @@
 <head>
     <meta charset="UTF-8"/>
     <title>Title</title>
-    <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
 
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 <body style="background-color:powderblue;">
 
-<a href="/add">Add a pet</a>
+<a class="middletd" href="/add">Add a pet</a>
 <div th:each="eachPet:${inventory}">
     <p  class="pettype" th:text="${eachPet.type}"></p>
 <!--  <span th:if="#field.hasErrors('type')}" th:errors="*{type}"></span> <br/>-->
@@ -20,31 +20,61 @@
     <p th:text="${eachPet.lost}?'fond':'lost '"></p>
   <a th:text="${eachPet.lost}?'fond':'lost'" th:href="@{/changestatus/{id}(id=${eachPet.id})}"></a>
 
-
-
     <a th:href="@{/update/{id}(id=${eachPet.id})}">Update</a>
     <a th:href="@{/detail/{id}(id=${eachPet.id})}">Detail</a>
 </div>
-<div class="container">
-        <!--Put each pet on a separate row -->
 
 
+<!--
+    <div th:each="eachPet:${inventory}">
+    <div class="col-6 offset-2">
+        <table>
+            <thead>
+            </thead>
+            <th>cat</th>
+            <th>mo</th>
+            <th> friday</th>
+            <th>"/img/tedy.jpg"</th>
+            <th>lost?</th>
+            <tbody>
+            <tr th:each="aPet:${pets}">
+                <td>
+                    <p class="pettype" th:text="${aPet.type}"></p>
+                    <p class="petname" th:text="${apet.name}"></p>
+                </td>
+                <td><img th:src="${aPet.image}" th:alt="${aPet.type}+' '+${aPet.name}"/></td>
+                <td><input  type="checkbox" th:checked="${aPet.lost}" find></td>
+            </tr>
+            </tbody>
+        </table>
 
-<div th:each="aPet:${pets}" class="row">
-    <div class="col-3">
-        <p class="pettype" th:text="${aPet.type}"></p>
     </div>
-    <div class="col-3">
-        <p class="petname" th:text="${aPet.name}"></p>
     </div>
-    <div class="col-3">
-        <img th:src="${aPat.image}" th:alt="${aPet.type}+' '+${aPet.name}"/>
-
+-->
+    <div class="container">
+        <div th:each="eachPet:${inventory}">
+        <div th:each="aPet:${pets}" class="row">
+            <div class="col-3">
+                <p class="pettype" th:text="${aPet.type}"></p>
+            </div>
+            <div class="col-3">
+                <p class="petname" th:text="${aPet.name}"></p>
+            </div>
+            <div class="col-3">
+                fond <input type="checkbox" th:checked="${aPet.lost}" fond>
+            </div>
+            <!--Show the car image on the right-->
+            <div class="col-3 text-center">
+                <img th:src="${aPat.image}" th:alt="${aPet.type}+' '+${aPet.name}"/>
+            </div>
+        </div>
+        </div>
     </div>
-        <!--Show the car image on the right-->
 
-</div>
-</div>
+
+
+
+
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
