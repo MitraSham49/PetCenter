@@ -25,6 +25,20 @@
 </div>
 
 
+<table class="table">
+    <thead>
+    <th></th>
+    </thead>
+
+    <tbody>
+     <tr th:each="eachPet:${inventory}">
+         <td th:text="${eachPet.name}"></td>
+         <td><img th:src="${eachPet.image}" alt=""></td>
+         <td th:text="${eachPet.lost}?'Lost':'Found'"></td>
+
+     </tr>
+    </tbody>
+</table>
 <!--
     <div th:each="eachPet:${inventory}">
     <div class="col-6 offset-2">

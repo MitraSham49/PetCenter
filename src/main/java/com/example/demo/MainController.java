@@ -32,6 +32,8 @@ public class MainController {
     if (result.hasErrors()){
         return"addpet";
     }
+    if(toSave.getImage().isEmpty())
+        toSave.setImage("/img/tedy.jpg");
      petRepo.save (toSave);
     return "redirect:/";
      }

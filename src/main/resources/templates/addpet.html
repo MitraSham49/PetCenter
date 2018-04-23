@@ -16,8 +16,8 @@
     <form action="/savepet" th:object="${aPet}" method="post">
         <input type="hidden" th:field="*{id}">
         <label for="type">Enter Pet Type</label>
-        <input type="text" th:field="*{type}">
-        <!-- <span th:if="#field.hasErrors('type')}" th:errors="*{type}"></span> <br/> -->
+               <input type="text" th:field="*{type}">
+         <span th:if="${#fields.hasErrors('type')}" th:errors="*{type}"></span> <br/>
         <label for="name">Enter Pet Name</label>
         <input type="text" th:field="*{name}">
         <label for="description">Enter Pet information</label>
